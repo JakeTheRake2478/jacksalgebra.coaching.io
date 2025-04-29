@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Check</title>
+</head>
+<body>
+
+<?php
+    // This checks if the password is correct.
+    if ($_POST['password'] == "dragon123") {
+        header("Location: games.html");  // Redirects to games.html if password is correct
+        exit(); // Stop the rest of the script
+    } else {
+        echo "<h1>Incorrect password. Try again.</h1>";
+        echo "<a href='access.html'>Back to login</a>";
+    }
+?>
+
+</body>
+</html>
