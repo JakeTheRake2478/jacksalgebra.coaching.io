@@ -10,6 +10,9 @@
             text-align: center;
             padding: 50px;
             background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         h1 {
             color: #333;
@@ -31,6 +34,12 @@
         a:hover {
             background-color: #45a049;
         }
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            font-size: 16px;
+            color: #777;
+        }
     </style>
 </head>
 <body>
@@ -38,8 +47,11 @@
 <h1>Welcome to the Resource Portal</h1>
 <p>This is a place for educational resources. Please click below to go to the login page.</p>
 
-<!-- Simple link to access.html -->
 <a href="access.html">Go to Login Page</a>
+
+<div class="footer">
+    Presented to you by your friend, Jack
+</div>
 
 </body>
 </html>
