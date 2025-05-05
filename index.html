@@ -3,55 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Our Resources</title>
+    <title>Game Links Portal</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
             text-align: center;
         }
+        
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            text-align: center;
+        }
+
         h1 {
             color: #333;
+            font-size: 40px;
         }
-        p {
-            font-size: 18px;
-            color: #555;
+
+        .game-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
-        a {
-            display: inline-block;
-            padding: 15px 25px;
-            margin: 20px 0;
-            background-color: #4CAF50;
-            color: white;
+
+        .game-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-card a {
+            display: block;
             text-decoration: none;
+            color: #333;
             font-size: 18px;
-            border-radius: 5px;
+            padding: 10px;
+            border: 2px solid #007BFF;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
         }
-        a:hover {
-            background-color: #45a049;
+
+        .game-card a:hover {
+            background-color: #007BFF;
+            color: white;
         }
-        .footer {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #777;
+
+        .game-card h2 {
+            margin-top: 0;
         }
+
+        footer {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
+
+        footer .footer-text {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        footer .footer-logo {
+            font-weight: bold;
+            color: #FF6347;
+            font-size: 18px;
+        }
+
+        footer .footer-text span {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+        
     </style>
 </head>
 <body>
 
-    <h1>Welcome to the Resource Portal</h1>
-    <p>This is a place for educational resources. Please click below to go to the login page.</p>
-    <a href="access.html">Go to Login Page</a>
-    <div class="footer">Presented to you by your friend, Jack</div>
+<script>
+  var password = prompt("Enter Beta Access Key:");
+  if (password !== atob("OTI3ODA5MTI=")) {
+    window.location.href = "https://www.google.com";
+  }
+</script>
+
+<header>
+    Game Links Portal
+</header>
+
+<div class="container">
+    <h1>Extra Study Materials & Games</h1>
+
+    <div class="game-links">
+        <div class="game-card">
+            <h2>2048</h2>
+            <a href="games/2048/index.html" target="_blank">Play 2048</a>
+        </div>
+
+        <div class="game-card">
+            <h2>Dino</h2>
+            <a href="games/dino/index.html" target="_blank">Play Dino Game</a>
+        </div>
+
+        <div class="game-card">
+            <h2>Slope 2</h2>
+            <a href="slope2/index.html" target="_blank">Play Slope 2</a>
+        </div>
+
+        <div class="game-card">
+            <h2>1v1LOL</h2>
+            <a href="1v1lol/index.html" target="_blank">Play 1v1LOL (maybe broken)</a>
+        </div>
+
+        <div class="game-card">
+            <h2>PolyTrack</h2>
+            <a href="polytrack/index.html" target="_blank">Play PolyTrack</a>
+        </div>
+
+        <div class="game-card">
+            <h2>Cluster Rush</h2>
+            <a href="clusterrush/index.html" target="_blank">Play Cluster Rush</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-text">
+        <span class="footer-logo">GlitchX &copy;</span>
+        <span>Presented to you by Jack</span>
+    </div>
+</footer>
 
 </body>
 </html>
