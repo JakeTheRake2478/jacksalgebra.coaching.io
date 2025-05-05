@@ -22,6 +22,17 @@
       text-align: center;
     }
 
+    #playButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.5rem;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-20px); }
@@ -36,27 +47,33 @@
 <body>
   <div class="message">get outa here website stealer</div>
 
+  <!-- Instructions text -->
+  <div class="message">Press "F" or click the button below to play the sound!</div>
+
   <audio id="sfx">
     <source src="assets/dellor-funny.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
+  <!-- Button to trigger the sound -->
+  <button id="playButton">Click to play sound</button>
+
   <script>
     const audio = document.getElementById("sfx");
+    const playButton = document.getElementById("playButton");
 
-    // Play sound when user interacts with the page (click anywhere)
-    window.addEventListener("click", () => {
-      audio.volume = 1.0; // Set max volume
-      audio.play();
+    // When the user presses "F"
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "f" || event.key === "F") {
+        audio.volume = 1.0; // Set max volume
+        audio.play(); // Play sound
+      }
     });
 
-    // If the audio still doesn't play after click, retry after a slight delay
-    window.addEventListener("click", () => {
-      setTimeout(() => {
-        audio.play().catch(() => {
-          console.log("Failed to play audio after click");
-        });
-      }, 500); // Retry after 500ms
+    // When the user clicks the button
+    playButton.addEventListener("click", () => {
+      audio.volume = 1.0; // Set max volume
+      audio.play(); // Play sound
     });
   </script>
 </body>
