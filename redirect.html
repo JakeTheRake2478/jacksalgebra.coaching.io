@@ -42,9 +42,20 @@
 </head>
 <body>
   <div class="message">get outa here website stealer</div>
-  <audio autoplay>
-  <source src="assets/dellor-funny.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+
+  <audio id="sfx" autoplay>
+    <source src="assets/dellor-funny.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Try to force play on load
+    window.onload = () => {
+      const audio = document.getElementById("sfx");
+      audio.play().catch(err => {
+        console.log("Autoplay blocked:", err);
+      });
+    };
+  </script>
 </body>
 </html>
