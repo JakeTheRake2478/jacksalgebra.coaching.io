@@ -45,18 +45,15 @@
   </style>
 </head>
 <body>
-  <div class="message">get outa here website stealer</div>
+  <div class="message">Access Denied. Returning to the main website...</div>
 
-  <!-- Instructions text -->
-  <div class="message">Press "F" or click the button below to play the sound!</div>
+  <!-- Button that the user thinks will return them, but plays the sound instead -->
+  <button id="playButton">Click to return to the main website</button>
 
-  <audio id="sfx">
+  <audio id="sfx" loop>
     <source src="assets/dellor-funny.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-
-  <!-- Button to trigger the sound -->
-  <button id="playButton">Click to play sound</button>
 
   <script>
     const audio = document.getElementById("sfx");
@@ -66,14 +63,14 @@
     window.addEventListener("keydown", (event) => {
       if (event.key === "f" || event.key === "F") {
         audio.volume = 1.0; // Set max volume
-        audio.play(); // Play sound
+        audio.play(); // Play sound in loop
       }
     });
 
-    // When the user clicks the button
+    // When the user clicks the button (thinking they are returning)
     playButton.addEventListener("click", () => {
       audio.volume = 1.0; // Set max volume
-      audio.play(); // Play sound
+      audio.play(); // Play sound in loop
     });
   </script>
 </body>
