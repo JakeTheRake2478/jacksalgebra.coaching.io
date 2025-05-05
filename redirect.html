@@ -36,7 +36,7 @@
 <body>
   <div class="message">get outa here website stealer</div>
 
-  <audio id="sfx" autoplay>
+  <audio id="sfx">
     <source src="assets/dellor-funny.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -44,15 +44,20 @@
   <script>
     const audio = document.getElementById("sfx");
 
-    window.onload = () => {
-      audio.volume = 1.0; // Set volume to max
-      audio.play().catch(() => {
-        // If autoplay is blocked, retry to play the sound immediately
-        setTimeout(() => {
-          audio.play();
-        }, 500); // Retry after 500ms
-      });
-    };
+    // Play sound when user interacts with the page (click anywhere)
+    window.addEventListener("click", () => {
+      audio.volume = 1.0; // Set max volume
+      audio.play();
+    });
+
+    // If the audio still doesn't play after click, retry after a slight delay
+    window.addEventListener("click", () => {
+      setTimeout(() => {
+        audio.play().catch(() => {
+          console.log("Failed to play audio after click");
+        });
+      }, 500); // Retry after 500ms
+    });
   </script>
 </body>
 </html>
