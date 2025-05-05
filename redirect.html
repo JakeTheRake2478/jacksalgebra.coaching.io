@@ -13,6 +13,7 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      flex-direction: column;
     }
 
     .message {
@@ -21,22 +22,26 @@
       text-align: center;
     }
 
+    #play-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      display: none;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
     @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
 
     @keyframes flash {
-      0% {
-        color: red;
-      }
-      100% {
-        color: yellow;
-      }
+      0% { color: red; }
+      100% { color: yellow; }
     }
   </style>
 </head>
@@ -48,14 +53,25 @@
     Your browser does not support the audio element.
   </audio>
 
+  <button id="play-button">Click to enable sound</button>
+
   <script>
-    // Try to force play on load
+    const audio = document.getElementById("sfx");
+    const playButton = document.getElementById("play-button");
+
     window.onload = () => {
-      const audio = document.getElementById("sfx");
-      audio.play().catch(err => {
-        console.log("Autoplay blocked:", err);
+      audio.volume = 1.0;
+      audio.play().catch(() => {
+        // Autoplay blocked, show manual play button
+        playButton.style.display = "block";
       });
     };
+
+    playButton.addEventListener("click", () => {
+      audio.volume = 1.0;
+      audio.play();
+      playButton.style.display = "none";
+    });
   </script>
 </body>
 </html>
