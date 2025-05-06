@@ -18,8 +18,8 @@
 
     .message {
       font-size: 3rem;
-      animation: bounce 1s infinite, flash 0.4s infinite alternate;
       text-align: center;
+      color: red;
     }
 
     #playButton {
@@ -32,22 +32,11 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    @keyframes flash {
-      0% { color: red; }
-      100% { color: yellow; }
-    }
   </style>
 </head>
 <body>
-  <div class="message">Access Denied. Returning to the main website...</div>
+  <div class="message">Access Denied</div>
 
-  <!-- Button that the user thinks will return them, but plays the sound instead -->
   <button id="playButton">Click to return to the main website</button>
 
   <audio id="sfx" loop>
@@ -59,18 +48,16 @@
     const audio = document.getElementById("sfx");
     const playButton = document.getElementById("playButton");
 
-    // When the user presses "F"
     window.addEventListener("keydown", (event) => {
       if (event.key === "f" || event.key === "F") {
-        audio.volume = 1.0; // Set max volume
-        audio.play(); // Play sound in loop
+        audio.volume = 1.0;
+        audio.play();
       }
     });
 
-    // When the user clicks the button (thinking they are returning)
     playButton.addEventListener("click", () => {
-      audio.volume = 1.0; // Set max volume
-      audio.play(); // Play sound in loop
+      audio.volume = 1.0;
+      audio.play();
     });
   </script>
 </body>
