@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             background: #f4f4f9;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             text-align: center;
         }
         
@@ -75,82 +75,128 @@
             background-color: #007BFF;
             color: white;
             padding: 15px 0;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
             text-align: center;
         }
 
-        footer .footer-text {
+        .footer-text {
             display: inline-block;
             font-size: 14px;
             font-weight: normal;
         }
 
-        footer .footer-logo {
+        .footer-logo {
             font-weight: bold;
             color: #FF6347;
             font-size: 18px;
         }
 
-        footer .footer-text span {
+        .footer-text span {
             font-size: 18px;
             margin-left: 5px;
         }
-        
+
+        #tos-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            height: 50vh;
+            overflow-y: scroll;
+            text-align: left;
+        }
+
+        #accept-btn {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #main-content {
+            display: none;
+        }
     </style>
 </head>
 <body>
 
-<script>
-  var password = prompt("Enter Beta Access Key:");
-  if (password !== atob("OTI3ODA5MTI=")) {
-    window.location.href = "redirect.html";
-  }
-</script>
-
-<header>
-    Game Links Portal
-</header>
-
-<div class="container">
-    <h1>Extra Study Materials & Games</h1>
-
-    <div class="game-links">
-        <div class="game-card">
-            <h2>2048</h2>
-            <a href="games/2048/index.html" target="_blank">Play 2048 (WIP)</a>
-        </div>
-
-        <div class="game-card">
-            <h2>Dino</h2>
-            <a href="games/dino/index.html" target="_blank">Play Dino Game (WIP)</a>
-        </div>
-
-        <div class="game-card">
-            <h2>Slope 2</h2>
-            <a href="slope2/index.html" target="_blank">Play Slope 2</a>
-        </div>
-
-        <div class="game-card">
-            <h2>1v1LOL</h2>
-            <a href="1v1lol/index.html" target="_blank">Play 1v1LOL (maybe broken)</a>
-        </div>
-
-        <div class="game-card">
-            <h2>PolyTrack</h2>
-            <a href="polytrack/index.html" target="_blank">Play PolyTrack</a>
-        </div>
+<div id="tos-section">
+    <h1>Terms of Service (Beta Access)</h1>
+    <div id="tos-container">
+        <h2>1. Beta Access Terms</h2>
+        <p>You are participating in a beta test. Everything is subject to change.</p>
+        <h2>2. Usage</h2>
+        <p>Do not abuse or exploit any part of this site or the games.</p>
+        <h2>3. Confidentiality</h2>
+        <p>Do not share beta content with anyone not approved for access.</p>
+        <h2>4. Unauthorized Distribution & Copying</h2>
+        <p>
+            You agree not to copy, reproduce, distribute, or share any part of this website, its contents, beta features, or access credentials without explicit written permission from the developer. This includes but is not limited to:
+        </p>
+        <ul>
+            <li>Sharing download links, beta access links, or private URLs with others</li>
+            <li>Copying game files, HTML/CSS/JS code, or assets from the site</li>
+            <li>Posting or uploading parts of the site to public platforms (e.g. GitHub, forums, Discord, file hosts)</li>
+            <li>Giving others the beta access password or bypass methods</li>
+        </ul>
+        <p>
+            Any user found to be violating these rules will have their beta access permanently revoked.
+        </p>
     </div>
-
+    <button id="accept-btn">I Accept</button>
 </div>
 
-<footer>
-    <div class="footer-text">
-        <span class="footer-logo">GlitchX &copy;</span>
-        <span>Presented to you by Jack</span>
+<div id="main-content">
+    <script>
+      var password = prompt("Enter Beta Access Key:");
+      if (password !== atob("OTI3ODA5MTI=")) {
+        window.location.href = "redirect.html";
+      }
+    </script>
+
+    <header>
+        Game Links Portal
+    </header>
+
+    <div class="container">
+        <h1>Extra Study Materials & Games</h1>
+        <div class="game-links">
+            <div class="game-card">
+                <h2>2048</h2>
+                <a href="games/2048/index.html" target="_blank">Play 2048 (WIP)</a>
+            </div>
+            <div class="game-card">
+                <h2>Dino</h2>
+                <a href="games/dino/index.html" target="_blank">Play Dino Game (WIP)</a>
+            </div>
+            <div class="game-card">
+                <h2>Slope 2</h2>
+                <a href="slope2/index.html" target="_blank">Play Slope 2</a>
+            </div>
+            <div class="game-card">
+                <h2>1v1LOL</h2>
+                <a href="1v1lol/index.html" target="_blank">Play 1v1LOL (maybe broken)</a>
+            </div>
+            <div class="game-card">
+                <h2>PolyTrack</h2>
+                <a href="polytrack/index.html" target="_blank">Play PolyTrack</a>
+            </div>
+        </div>
     </div>
-</footer>
+
+    <footer>
+        <div class="footer-text">
+            <span class="footer-logo">GlitchX &copy;</span>
+            <span>Presented to you by Jack</span>
+        </div>
+    </footer>
+</div>
+
+<script>
+    document.getElementById("accept-btn").onclick = function () {
+        document.getElementById("tos-section").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+    };
+</script>
 
 </body>
 </html>
