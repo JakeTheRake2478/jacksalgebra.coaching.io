@@ -2,62 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Access Denied</title>
   <style>
     body {
-      background-color: black;
-      color: red;
-      font-family: 'Arial Black', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      flex-direction: column;
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      color: #ffe4ea;
+      background: radial-gradient(circle at center, #420012 0%, #21000b 45%, #090104 100%);
     }
 
-    .message {
-      font-size: 3rem;
+    .card {
+      width: min(560px, 100%);
+      border-radius: 20px;
+      padding: 30px;
       text-align: center;
-      color: red;
+      border: 1px solid rgba(255, 170, 190, 0.25);
+      background: rgba(40, 8, 18, 0.75);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
     }
 
-    #playButton {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1.5rem;
-      background-color: red;
-      color: white;
+    h1 {
+      margin-top: 0;
+      font-size: clamp(2rem, 7vw, 3rem);
+      color: #ff6f92;
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      color: #f2b8c8;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    button {
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #340110;
       cursor: pointer;
+      background: linear-gradient(120deg, #ff95b0, #ff628c);
     }
   </style>
 </head>
 <body>
-  <div class="message">Access Denied</div>
+  <main class="card">
+    <h1>Access Denied</h1>
+    <p>Looks like that key didn't work. Head back to the main website and try again.</p>
+    <button id="playButton">Return to Main Website</button>
 
-  <button id="playButton">Click to return to the main website</button>
-
-  <audio id="sfx" loop>
-    <source src="assets/dellor-funny.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+    <audio id="sfx" loop>
+      <source src="assets/dellor-funny.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </main>
 
   <script>
-    const audio = document.getElementById("sfx");
-    const playButton = document.getElementById("playButton");
+    const audio = document.getElementById('sfx');
+    const playButton = document.getElementById('playButton');
 
-    window.addEventListener("keydown", (event) => {
-      if (event.key === "f" || event.key === "F") {
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'f' || event.key === 'F') {
         audio.volume = 1.0;
         audio.play();
       }
     });
 
-    playButton.addEventListener("click", () => {
+    playButton.addEventListener('click', () => {
       audio.volume = 1.0;
       audio.play();
+      window.location.href = 'https://jacksgames.coaching.io';
     });
   </script>
 </body>
